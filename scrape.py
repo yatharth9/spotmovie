@@ -14,9 +14,8 @@ r = requests.get(url,allow_redirects=True)
 open(f_gz,'wb').write(r.content)
 
 with gzip.open(f_gz, 'rb') as f_in:
-    with open(f_in, 'wb') as f_out:
+    with open(f_name, 'wb') as f_out:
         shutil.copyfileobj(f_in, f_out)
-
 
 if os.path.exists(f_gz):
   os.remove(f_gz)

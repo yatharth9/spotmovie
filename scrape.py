@@ -10,7 +10,7 @@ artist_name_gz = artist_name + ".gz"
 title_akas = "title.akas.tsv"
 title_akas_gz = title_akas + ".gz"
 
-title_basics = "title.basic.tsv"
+title_basics = "title.basics.tsv"
 title_basics_gz = title_basics + ".gz"
 
 title_crew = "title.crew.tsv"
@@ -19,16 +19,19 @@ title_crew_gz = title_crew + ".gz"
 title_ratings = "title.ratings.tsv"
 title_ratings_gz = title_ratings + ".gz"
 
-url = f"https://datasets.imdbws.com/{artist_name_gz}"
-r = requests.get(url,allow_redirects=True)
+file_list = [artist_name, title_akas, title_basics, title_crew, title_ratings]
 
-open(artist_name_gz,'wb').write(r.content)
+for title in file_list:
+  url = f"https://datasets.imdbws.com/{title}.gz"
+  r = requests.get(url,allow_redirects=True)
 
-with gzip.open(artist_name_gz, 'rb') as f_in:
-    with open(artist_name, 'wb') as f_out:
-        shutil.copyfileobj(f_in, f_out)
+  open(f"{title}.gz",'wb').write(r.content)
 
-if os.path.exists(artist_name_gz):
-  os.remove(artist_name_gz)
-else:
-  print("The file does not exist")
+  with gzip.open(f"{title}.gz", 'rb') as f_in:
+      with open(title, 'wb') as f_out:
+          shutil.copyfileobj(f_in, f_out)
+
+  if os.path.exists(f"{title}.gz"):
+    os.remove(f"{title}.gz")
+  else:
+    print("The file does not exist")

@@ -1,3 +1,7 @@
 name.basics.tsv
+title.basics.tsv
+title.akas.tsv
+title.crew.tsv
+title.ratings.tsv
 *config.py
 *.ini

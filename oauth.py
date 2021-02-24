@@ -1,8 +1,20 @@
+# For the Flask App.
 from flask import Flask, request, url_for, session, redirect, render_template
+
+# Spotify Api Python Wrapper.
 import spotipy
+
+# To authenticate the user with App and to get user data.
 from spotipy.oauth2 import SpotifyOAuth
+
+# For the Environement Variables.
 import os
+
+# To check if the token is expired or not.
 import time
+
+# To send SMS to phone, in case of any Error.
+import alert.sms as SMS
 
 cachefile = ".cache"
 if os.path.exists(cachefile):
@@ -38,7 +50,7 @@ def getTrack():
         print("User not logged in ")
         return redirect(url_for("login", _external=False))
     sp = spotipy.Spotify(auth=token_info['access_token'])
-    return str(sp.current_user_saved_tracks(limit=20, offset=0)['items'][0])
+    return str(sp.current_user_saved_tracks(limit=20, offset=0)['items'])
 
 def get_token():
     token_info = session.get(TOKEN_INFO, None)

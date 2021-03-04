@@ -30,6 +30,10 @@ app.config['SESSION_COOKIE_NAME'] = 'Spotipy Cookie'
 TOKEN_INFO = "token_info"
 
 @app.route('/')
+def home():
+    return render_template("index.html")
+
+@app.route('/rd')
 def login():
     sp_oauth = create_spotify_oauth()
     auth_url = sp_oauth.get_authorize_url()

@@ -5,3 +5,5 @@ title.crew.tsv
 title.ratings.tsv
 *config.py
 *.ini
+alert/__pycache__
+__pycache__

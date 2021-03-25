@@ -1,0 +1,349 @@
+header {
+  margin-bottom: 0px;
+}
+
+body {
+  background: blanchedalmond;
+}
+
+#Mynvbar
+{
+	width: auto;
+	height: auto;
+	border-radius: 0px;
+	background-color: #d944e625;
+		
+}
+
+.container-fluid {
+  background-color: rgba(45, 62, 80);
+}
+
+#navL {
+  color: Green;
+  text-decoration: underline overline;
+  text-decoration-color: rgba(55, 245, 213, 0.39);
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  background-color: lightyellow;
+  text-align: center;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+
+}
+.navbar-brand {
+  background-color: lightyellow;
+    border-bottom-color: azure;
+    border: 2px groove cadetblue;
+}
+
+#divs2 {
+  width: auto;  
+}
+
+.panl {
+  color: rgba(45, 62, 80);
+  font-size: 40px;
+}
+
+.panel-body {
+  text-align: center;
+  text-shadow: 1px 1px #d944e625;
+  font-weight: 500;
+  font-size: 20px;    
+  background-color: blanchedalmond;
+  border: 1px dashed rgba(45, 62, 80);
+}
+
+#divancr {
+  background-color: mediumaquamarine;
+}
+
+/* The side navigation menu 
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: auto;
+  overflow: auto;
+  display: inline-block;
+}
+
+/* Sidebar links
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Active/current link
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Links on mouse-over
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+} */
+
+@media(min-width: 992px) {
+  
+  .navbar-collapse.collapse {
+    height: 20px !important;
+  }
+
+  #navid {
+    height: 50px;
+    margin-left: 1vw;
+    width: 67vw;
+  }
+
+  div img {
+    margin: 5px 2px 0px 5px;
+    width: 38%;
+    height: 70%;
+    padding-left: 10px;
+  }
+
+  pre {
+    font-size: 1.2vw;
+  }
+
+  #songshd {
+    background-color: blanchedalmond;
+  }
+
+  h2 {
+    margin-left: 25%;
+    color: rgb(45, 62, 80);
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: blanchedalmond;
+    position: sticky;
+    top: 0;
+  }
+
+}
+
+
+@media(min-width: 768px) and (max-width: 991px) {
+  
+  .carousel-caption {
+    right: 20%;
+    left: 20%;
+    padding-bottom: 20px;
+  }
+
+  .carousel-indicators {
+    bottom: 10px;
+  }
+
+  #divmovie {
+    height: 500px !important;
+  }
+
+  div img {
+    margin: 5px 2px 0px 5px;
+    width: 42%;
+    height: 70%;
+    padding-left: 10px;
+  }
+
+  pre {
+    font-size: 1.2vw;
+  }
+
+  #divsongs {
+    height: 500px !important;
+  }
+
+  #songsmostlyplayed {
+    height: auto !important;
+    font-size: 2vw !important;
+  }
+}
+
+
+@media(max-width: 767px) {
+
+}
+
+.center-block {
+  float:none
+}
+
+.carousel img {
+  width:100%;
+  height:100%
+}
+
+#myCarousel {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+.carousel-inner img {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%); /* make all photos black and white */
+  width: 100%; /* Set width to 100% */
+  margin: auto;
+}
+
+
+.carousel-caption h3 {
+  color: rgba(45, 62, 80) !important;
+  font-weight: bold;
+  font-size: 3vw;
+  text-decoration: underline;
+}
+
+/* Movie div */
+#divmovie {
+  width: 75%;
+  height: 740px;
+  background-color: rgba(45, 62, 80);
+  margin-top: 20px;
+  border: 12px groove darkgray;
+  align-content: center;
+  overflow-y: auto;
+  position: relative;
+  top: 50%;
+  left: 12.5%
+}
+
+#movietd {
+  background-color: blanchedalmond;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  color: rgba(45, 62, 80);
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 62, 80);
+  font-weight: bold;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+
+
+div #image1 {
+  width: auto;
+  height: auto;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+div #image2 {
+  width: auto;
+  height: auto;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+div #image3 {
+  width: auto;
+  height: auto;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+div #image4 {
+  width: auto;
+  height: auto;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.imagempre {
+  margin: 20px;
+  display:inline-block;
+}
+
+/* Songs div */
+#divsongs {
+  width: 75%;
+  height: 600px;
+  background-color: rgba(45, 62, 80);
+  margin-top: 20px;
+  border: 12px groove darkgrey;
+  align-content: center;
+  position: relative;
+  top: 2%;    
+  left: 12.5%;
+}
+
+#songstd {
+  background-color: blanchedalmond;
+  color: rgba(45, 62, 80);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 62, 80);
+  padding: 10px;
+  overflow-y: auto;
+}
+
+#songslist {
+  display: inline-block;
+}
+
+#v1 {
+  display: inline-block;
+  border-left: 2px solid green;
+  height: auto;
+  position: absolute;
+  left: 48%;
+  margin-left: -3px;
+  top: 88px;
+}
+
+#songsmostlyplayed {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  height: 450px;
+  left: 48%;
+  color: blanchedalmond;
+  font-size: 1.5vw;
+  border: 12px solid blanchedalmond;
+  margin: 10px 0px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+#ftr1 {
+  background-color: black;
+  height: 300px;
+  width: auto;
+  clear: both;
+}
+
+#ftrp1{
+  color: white;
+}

@@ -1,0 +1,32 @@
+// json response
+
+{
+    "danceability": 0.735,
+    "energy": 0.578,
+    "key": 5,
+    "loudness": -11.84,
+    "mode": 0,
+    "speechiness": 0.0461,
+    "acousticness": 0.514,
+    "instrumentalness": 0.0902,
+    "liveness": 0.159,
+    "valence": 0.624,
+    "tempo": 98.002,
+    "type": "audio_features",
+    "id": "06AKEBrKUckW0KREUWRnvT",
+    "uri": "spotify:track:06AKEBrKUckW0KREUWRnvT",
+    "track_href": "https://api.spotify.com/v1/tracks/06AKEBrKUckW0KREUWRnvT",
+    "analysis_url": "https://api.spotify.com/v1/audio-analysis/06AKEBrKUckW0KREUWRnvT",
+    "duration_ms": 255349,
+    "time_signature": 4
+}
+
+danceability proportional to Energy
+Tempo is the most primary factor in song classification. 
+Time_signature is also a very nice simplified factor, if we can understand. 
+The Genre varies on instrument, but since there is no idea which instrument is,
+we might be hitting an arrow in the dark. 
+track_href is the link for the song. 
+Liveness (More of liveness) indicates a concert being performed. 
+Greater the Loudness, better the dancability, to an extent, then it is just metal
+There must be a hidden relation of speechiness to acousticness or instrumentalness

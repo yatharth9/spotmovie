@@ -6,4 +6,5 @@ title.ratings.tsv
 *config.py
 *.ini
 alert/__pycache__
-__pycache__
+__pycache__/*
+.cache

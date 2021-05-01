@@ -209,5 +209,9 @@ def create_spotify_oauth():
         redirect_uri=url_for('redirectPage', _external=True),
         scope="user-library-read")
 
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'),404
+
 if __name__ == "__main__":
     app.run()

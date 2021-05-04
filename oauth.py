@@ -22,6 +22,16 @@ import json
 #importing pandas
 import pandas as pd
 
+#importing Mysql connector to connect to the Mysql Database
+import mysql.connector
+
+#importing to randomize the selection
+import random
+
+#importing this package to get functions in use
+import internal.DBwork as db
+import internal.Poster
+
 cachefile = ".cache"
 if os.path.exists(cachefile):
     os.remove(cachefile)
@@ -143,7 +153,31 @@ def OutputListFinder(MajorGenreList, pd):
 
     return MainOutputList
 
-#___________________________________________________________________________________________________________________
+#____________________________________________________________________________________________________________________
+
+def get_token():
+    token_info = session.get(TOKEN_INFO, None)
+    if not token_info:
+        raise "exception"
+    now = int(time.time())
+
+    is_expired = token_info['expires_at'] - now < 60
+    if(is_expired):
+        sp_oauth = create_spotify_oauth()
+        token_info = sp_oauth.refresh_access_token(token_info['refresh_token'])
+    return token_info
+
+def create_spotify_oauth():
+    return SpotifyOAuth(
+        client_id=clientid,
+        client_secret=clientsecret,
+        redirect_uri=url_for('redirectPage', _external=True),
+        scope="user-library-read")
+
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'),404
+
 
 @app.route('/getTracks')
 def getTrack():
@@ -182,36 +216,23 @@ def getTrack():
 
         MajorGenreList = GenreListFinder(MainGenreList)
         MainOutputList = OutputListFinder(MajorGenreList, pd)
+        MainOutputList_Final = []
+        
+        for i in MainOutputList:
+            MainOutputList_Final.append(str(i))
+        
+        Movies = db.getMovies(MainOutputList_Final)
         '''
         temp_list = [str(track["href"]), str(track["id"]), str(track["name"])] #Taking 'href', 'Id' & 'name'
         necessary_data.append(temp_list)
         '''
 
-    return str(MainOutputList)
+    return str(Movies)      #Returning JSON type data
 
- 
-def get_token():
-    token_info = session.get(TOKEN_INFO, None)
-    if not token_info:
-        raise "exception"
-    now = int(time.time())
 
-    is_expired = token_info['expires_at'] - now < 60
-    if(is_expired):
-        sp_oauth = create_spotify_oauth()
-        token_info = sp_oauth.refresh_access_token(token_info['refresh_token'])
-    return token_info
-
-def create_spotify_oauth():
-    return SpotifyOAuth(
-        client_id=clientid,
-        client_secret=clientsecret,
-        redirect_uri=url_for('redirectPage', _external=True),
-        scope="user-library-read")
-
-@app.errorhandler(404)
-def not_found_error(error):
-    return render_template('404.html'),404
+"""@app.route('/results')
+def results():
+    return """
 
 if __name__ == "__main__":
     app.run()

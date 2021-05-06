@@ -31,6 +31,7 @@ import random
 #importing this package to get functions in use
 import internal.DBwork as db
 import internal.Poster
+import internal.GenreWork as gw
 
 cachefile = ".cache"
 if os.path.exists(cachefile):
@@ -66,95 +67,6 @@ def redirectPage():
 
 #___________________________________________________________________________________________________________________
 
-#genre Finder method 
-def genreFinder(name,sp):
-    #name is whether an artist or the song name
-    result = sp.search(name) #search query
-
-    track = result['tracks']['items'][0]
-
-    artist = sp.artist(track["artists"][0]["external_urls"]["spotify"])
-    genreList = artist["genres"]
-    
-    return genreList
-
-#___________________________________________________________________________________________________________________
-
-def GenreListFinder(MainGenreList):    
-    MusicGenreList = ['EDM', 'ROCK', 'JAZZ', 'DUBSTEP', 'R&B', 'TECHNO', 'COUNTRY', 'ELECTRO', 'INDIE', 'POP', 'CLASSICAL', 'HIP-HOP', 'K-POP', 'METAL', 'RAP', 'REGGAE', 'FOLK']
-
-    TempList = []
-    MajorGenreList = []
-
-    for i in MainGenreList:
-        for j in i:
-            temp = j.split()
-            for t in temp:
-                TempList.append(t.upper())
-
-    TempList = list(dict.fromkeys(TempList))
-
-    if "HIP" in TempList:
-        if "HOP" in TempList:
-            TempList.append("HIP-HOP")
-            TempList.remove("HIP")
-            TempList.remove("HOP")
-
-    for i in TempList:
-        if i in MusicGenreList:
-            MajorGenreList.append(i)
-
-    return MajorGenreList
-
-#___________________________________________________________________________________________________________________
-
-def OutputListFinder(MajorGenreList, pd):  
-    data = pd.read_csv("SpotMovies - Filter.csv", header = None)
-    x = data.iloc[:, :-2].values
-    y = data.iloc[:, -1].values
-    Counter = [0]*len(y)
-
-    for j in range(len(x)):
-        count = 0
-        for index in range(len(MajorGenreList)):
-            i = MajorGenreList[index]
-
-            if i == x[j][0]:
-                count += 45
-                
-
-            elif i == x[j][1]:
-                count += 30
-                
-
-            elif i == x[j][2]:
-                count += 15
-                
-
-            elif i == x[j][3]:
-                count += 10
-                
-            else:
-                count += 0
-
-        Counter[j] = count
-
-
-    Output = {}
-    for i in range(len(y)):
-        if Counter[i] > 45:
-            Output[y[i]] = Counter[i]
-
-    OutputList = sorted(Output.items(), key=lambda x: x[1], reverse=True)
-
-    MainOutputList = []
-    for i in OutputList:
-        MainOutputList.append(i[0])
-
-    return MainOutputList
-
-#____________________________________________________________________________________________________________________
-
 def get_token():
     token_info = session.get(TOKEN_INFO, None)
     if not token_info:
@@ -186,13 +98,14 @@ def getTrack():
     except:
         print("User not logged in ")
         return redirect(url_for("login", _external=False))
+
     sp = spotipy.Spotify(auth=token_info['access_token'])
 
     MainGenreList = []
 
     #necessary_data = []
 
-    for i in range(5): 
+    """for i in range(5): 
         user_music_data = sp.current_user_saved_tracks(limit=1, offset=i)['items']  #Here we're using current user saved tracks, can be later replaced with top tracks
         
         '''
@@ -212,10 +125,11 @@ def getTrack():
         
         track = movie["track"]
         Name = str(track["name"])
-        MainGenreList.append(genreFinder(Name, sp))
+        MainGenreList.append(gw.genreFinder(Name, sp))
 
-        MajorGenreList = GenreListFinder(MainGenreList)
-        MainOutputList = OutputListFinder(MajorGenreList, pd)
+        MajorGenreList = gw.GenreListFinder(MainGenreList)
+        Name = "SpotMovies - Filter.csv"
+        MainOutputList = gw.OutputListFinder(MajorGenreList, Name, 45, pd)
         MainOutputList_Final = []
         
         for i in MainOutputList:
@@ -226,13 +140,14 @@ def getTrack():
         temp_list = [str(track["href"]), str(track["id"]), str(track["name"])] #Taking 'href', 'Id' & 'name'
         necessary_data.append(temp_list)
         '''
+    """
+    #return str(Movies)      #Returning JSON type data
+    return redirect(url_for("results", _external=False))
 
-    return str(Movies)      #Returning JSON type data
 
-
-"""@app.route('/results')
+@app.route('/results')
 def results():
-    return """
+    return render_template("RedirectingHomepage.html")
 
 if __name__ == "__main__":
     app.run()

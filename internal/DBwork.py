@@ -1,6 +1,9 @@
 #importing getposter to get posters
 import internal.Poster.getposter as gp
 
+"""#Use this While testing this particular py file
+import Poster.getposter as gp
+"""
 import mysql.connector
 import random
 import json
@@ -36,7 +39,7 @@ def GetFromOneGenre(MainOutputList, Movies, Cursor, year, random):
         MovieIndex = len(Movies)
         href_movie = f"https://www.imdb.com/title/{TempMovies[j][0]}/"
         Poster = gp.getposter(tconst=str(TempMovies[j][0]), Name=str(TempMovies[j][1]))
-        Movies["{0}".format(MovieIndex+1)] = {"tconst": TempMovies[j][0],"href_movie": href_movie, "Name": TempMovies[j][1], "Genres": TempMovies[j][2], "Year": TempMovies[j][3], "Poster": Poster}
+        Movies.append({"tconst": TempMovies[j][0],"href_movie": href_movie, "Name": TempMovies[j][1], "Genres": TempMovies[j][2], "Year": TempMovies[j][3], "Poster": Poster})
 
     return Movies
 
@@ -69,7 +72,7 @@ def GetFromTwoGenre(MainOutputList, Movies, Cursor, year, random):
             MovieIndex = len(Movies)
             href_movie = f"https://www.imdb.com/title/{TempMovies[j][0]}/"
             Poster = gp.getposter(tconst=str(TempMovies[j][0]), Name=str(TempMovies[j][1]))
-            Movies["{0}".format(MovieIndex+1)] = {"tconst": TempMovies[j][0],"href_movie": href_movie, "Name": TempMovies[j][1], "Genres": TempMovies[j][2], "Year": TempMovies[j][3], "Poster": Poster}
+            Movies.append({"tconst": TempMovies[j][0],"href_movie": href_movie, "Name": TempMovies[j][1], "Genres": TempMovies[j][2], "Year": TempMovies[j][3], "Poster": Poster})
 
     
     return Movies
@@ -100,7 +103,7 @@ def GetFromThreeGenre(MainOutputList, Movies, Cursor, year, random):
     MovieIndex = len(Movies)
     href_movie = f"https://www.imdb.com/title/{TempMovies[j][0]}/"
     Poster = gp.getposter(tconst=str(TempMovies[j][0]), Name=str(TempMovies[j][1]))
-    Movies["{0}".format(MovieIndex+1)] = {"tconst": TempMovies[j][0],"href_movie": href_movie, "Name": TempMovies[j][1], "Genres": TempMovies[j][2], "Year": TempMovies[j][3], "Poster": Poster}
+    Movies.append({"tconst": TempMovies[j][0],"href_movie": href_movie, "Name": TempMovies[j][1], "Genres": TempMovies[j][2], "Year": TempMovies[j][3], "Poster": Poster})
 
     return Movies
     
@@ -111,14 +114,14 @@ def getMovies(MainOutputList):
     mydb = mysql.connector.connect(host = "localhost", user = "root", passwd = "22072000", database = "test")
     Cursor = mydb.cursor()
     
-    Movies = {}
+    Movies = []
 
     Movies = GetFromOneGenre(MainOutputList, Movies, Cursor, 2010, random)
     Movies = GetFromTwoGenre(MainOutputList, Movies, Cursor, 2010, random)
     #Movies = GetFromThreeGenre(MainOutputList, Movies, Cursor, 2010, random)
     
 
-    #file = open("JSONdata.json", "a")
+    #file = open("RedirectedOutput.json", "w")
     JSONdata = json.dumps(Movies, ensure_ascii= False)
 
     #file.write(JSONdata)

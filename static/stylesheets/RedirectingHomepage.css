@@ -1,0 +1,536 @@
+header {
+  margin-bottom: 0px;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  color: #777;
+  /* background:rgba(87, 201, 216, 0.527); */
+  font: 400 15px/1.8 "Lato", sans-serif;
+}
+
+section {
+  margin-top: -20px;
+  /* background-color: rgb(221, 221, 221); */
+  background-image: url("10481555.png");
+}
+
+/* ##################################################### full size content goes here ##################################################### */
+.bgimg-1 {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("104815.jpg");
+  opacity: 0.8;
+  position: relative;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+
+/* ##################################################### brand work goes here ##################################################### */
+.brand {
+  padding: 0px 5px 0px 5px;
+  margin-left: 2vw;
+  font-weight: bold;
+  font-size: 1.5vw;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-shadow: 1px 1px black;
+  border: 2px groove firebrick;
+  border-radius: 5px;
+  background-color: rgb(221, 221, 221);
+  float: left;
+}
+
+#brandspan {
+  color: whitesmoke;
+  text-shadow: 1px 1px chartreuse;
+  padding-top: 1px; 
+  padding-bottom: 2px;
+  background-color: rgba(29, 72, 116, 0.932);
+}
+
+#spanbrand {
+  color: whitesmoke;
+  font-style: italic;
+
+}
+
+marquee {
+  width: 20%;
+  color: rgb(221, 221, 221);
+  font-weight: bold;
+  margin-left: 28vw;
+  background-color: rgba(29, 72, 116, 0.932);
+  border-radius: 5px;
+  float: left;
+}
+
+/* ##################################################### brand works end here ##################################################### */
+/* ##################################################### tagline works goes here ##################################################### */
+.panel-body {
+  color: black;
+  text-align: center;
+  text-shadow: -2.5px -2.5px rgb(221, 221, 221), 0px 2.5px rgb(221, 221, 221), 2.5px 0px rgb(221, 221, 221), 2.5px 2.5px rgb(221, 221, 221);
+  font-weight: bolder;
+  /*We are adjusting in every different window size*/
+  font-size: 2vw;
+  filter:saturate(2) brightness(1.2);
+}
+
+/* ##################################################### tagline works ends here ##################################################### */
+
+/* ##################################################### elements works goes here ##################################################### */
+#elements {
+  /*We are adjusting in every different window size*/
+  font-size: 1.2vw;
+  display: inline;
+  float: inline-start;
+}
+
+span {
+  color: rgba(5, 77, 20, 0.904);
+}
+
+#span-a {
+  margin-right: 4vw;
+}
+
+#span-b {
+  margin-right: 4vw;
+}
+
+#span-c {
+  margin-right: 4vw;
+}
+
+#span-d {
+  margin-right: 4vw;
+}
+
+#elements a {
+  color: rgba(5, 77, 20, 0.904);
+  font-weight: bold;
+  text-shadow: 1px 1px rgb(221, 221, 221);
+}
+
+a:hover {
+  color: rgba(5, 77, 20, 0.904);
+  font-style: italic;
+  text-decoration: none;
+}
+
+/* ##################################################### elements works ends here ##################################################### */
+/* ##################################################### full size content ends here ##################################################### */
+
+/* ##################################################### movie recommendation goes here ##################################################### */
+#divmovie {
+  width: 50%;
+  height: 740px;
+  background-color: rgb(221, 221, 221);
+  margin-top: 20px;
+  border: 12px groove darkgray;
+  align-content: center;
+  overflow-y: auto;
+  position: relative;
+  top: 50%;
+}
+
+.center {
+  margin: auto;
+}
+
+#movietd {
+  width: 100%;
+  color: white;
+  background-color: rgba(29, 72, 116, 0.932);
+  margin-top: 12px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: white;
+  border: 1px solid white;
+  font-weight: bold;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+#demo0 {
+  width: 50%;
+  height: auto;
+  margin: 10px;
+  display: inline;
+}
+
+#demo1 {
+  width: 50%;
+  height: auto;
+  color: rgba(29, 72, 116, 0.932);
+  margin: 10px;
+  font-weight: 300;
+  font-size: 1vw;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: inline;
+}
+
+div #image1 {
+  width: auto;
+  height: auto;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+div #image2 {
+  width: auto;
+  height: auto;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+div #image3 {
+  width: auto;
+  height: auto;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+div #image4 {
+  width: auto;
+  height: auto;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+#demo {
+  display:inline-block;
+}
+
+#imagempre {
+  margin: 20px;
+  display:inline-block;
+}
+
+/* ##################################################### movie recommendation ends here ##################################################### */
+/* ##################################################### song works goes here ##################################################### */
+#divsongs {
+  width: 50%;
+  height: 600px;
+  background-color: rgb(221, 221, 221);
+  margin-top: 20px;
+  border: 12px groove darkgrey;
+  align-content: center;
+  position: relative;
+  top: 2%;
+}
+
+#songstd {
+  background-color: rgba(16, 48, 80, 0.932);
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: white;
+  border: 1px solid white;
+  font-weight: bold;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+#songslist {
+  display: inline-block;
+}
+
+#v1 {
+  display: inline-block;
+  border-left: 2px solid green;
+  height: auto;
+  position: absolute;
+  left: 48%;
+  margin-left: -3px;
+  top: 88px;
+}
+
+#songsmostlyplayed {
+  display: inline-block;
+  position: absolute;
+  width: 50%;
+  height: 450px;
+  left: 48%;
+  color: rgb(221, 221, 221);
+  font-size: 1.5vw;
+  border: 12px groove darkgray;
+  margin: 10px 0px;
+  overflow-y: auto;
+}
+
+.h2, #songshd {
+  color: white;
+  background-color: rgba(16, 48, 80, 0.932);
+  padding-bottom: 10px;
+  border: 1px solid white;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: white;
+  font-weight: bold;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+/* ##################################################### song works ends here ##################################################### */
+/* ##################################################### footer works goes here ##################################################### */
+#ftr1 {
+  width: auto;
+  height: 300px;
+  padding-top: 20px;
+  background-color: black;
+  text-align: center;
+  font-size: 24px;
+  clear: both;
+}
+
+#ftrp1{
+  color: white;
+}
+
+#ftrp2 {
+  color: white;
+}
+
+#fa {
+  margin-left: 20px;
+  background-color: blue;
+}
+
+#in {
+  margin-left: 20px;
+  background-color: black;
+}
+
+/* ##################################################### footer works ends here ##################################################### */
+/**/
+#divancr {
+  background-color: mediumaquamarine;
+}
+
+@media(min-width: 992px) {
+  
+  div img {
+    margin: 5px 5px 0px 1px;
+    width: 42%;
+    height: 70%;
+    padding-left: 10px;
+  }
+
+  pre {
+    font-size: 1.2vw;
+  }
+
+
+}
+
+
+@media(min-width: 768px) and (max-width: 991px) {
+
+  .brand {
+    padding: 0px 5px 0px 5px;
+    margin-left: 2vw;
+    font-weight: bold;
+    font-size: 3vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 1px 1px black;
+    border: 2px groove firebrick;
+    border-radius: 5px;
+    background-color: rgb(221, 221, 221);
+  }
+
+  marquee {
+    width: 20%;
+    color: rgb(221, 221, 221);
+    font-weight: bold;
+    margin-left: 20vw;
+    background-color: rgba(29, 72, 116, 0.932);
+    border-radius: 5px;
+    float: left;
+  }
+
+  .panel-body {
+    font-size: 2.5vw;
+  }
+
+  #elements {
+    font-size: 2.5vw;
+  }
+
+  #divmovie {
+    height: 520px !important;
+    border: 8px groove darkgray;
+  }
+
+  #movietd {
+    padding: 5px;
+    font-weight: 500;
+  }
+
+  #divsongs {
+    height: 520px !important;
+    border: 8px groove darkgray;
+  }
+
+  #songstd {
+    padding: 5px;
+    font-weight: 500;
+  }
+
+  div img {
+    margin: 5px 2px 0px 5px;
+    width: 42%;
+    height: 70%;
+    padding-left: 10px;
+  }
+
+  pre {
+    font-size: 1.2vw;
+  }
+
+  #songsmostlyplayed {
+    height: auto !important;
+    font-size: 2vw !important;
+  }
+
+  #ftr1 {
+    font-size: 2.1vw;
+  }
+
+}
+
+@media(min-width: 320px) and (max-width: 767px) {
+
+  .brand {
+    padding: 0px 5px 0px 5px;
+    margin-left: 2vw;
+    font-weight: bold;
+    font-size: 4.5vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 1px 1px black;
+    border: 2px groove firebrick;
+    border-radius: 5px;
+    background-color: rgb(221, 221, 221);
+  }
+
+  marquee {
+    display: none;
+  }
+
+  .panel-body {
+    font-size: 4vw;
+  }
+
+  #elements {
+    /*We are adjusting in every different window size*/
+    font-size: 3vw;
+  }
+
+  #divmovie {
+    width: 100%;
+    height: 500px;
+    border: none;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .center {
+    width: auto;
+    margin: 0px;
+  }
+
+  #movietd {
+    float:left;
+    font-weight: 400;
+  }
+
+  #divsongs {
+    width: 100%;
+    height: 500px;
+    border: none;
+    font-weight: 400;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  #songstd {
+    font-weight: 400;
+  }
+
+  #songsmostlyplayed {
+    display: none; 
+  }
+
+  #ftr1 {
+    font-size: 4vw;
+  }
+
+}
+
+@media(max-width: 319px) {
+
+}
+
+#table {
+  margin: 0 auto;
+  font-size: large;
+  border: 1px solid black;
+}
+
+h1 {
+  text-align: center;
+  color: #006600;
+  font-size: xx-large;
+  font-family: 'Gill Sans', 
+      'Gill Sans MT', ' Calibri', 
+      'Trebuchet MS', 'sans-serif';
+}
+
+td {
+  background-color: #E4F5D4;
+  border: 1px solid black;
+}
+
+th,
+td {
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+td {
+  font-weight: lighter;
+}

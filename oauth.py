@@ -37,8 +37,8 @@ cachefile = ".cache"
 if os.path.exists(cachefile):
     os.remove(cachefile)
 
-clientid = '276a17e1b96d4a4ca9810ab918a90f21'
-clientsecret = 'd45b660ec9b04782956c15d43abaaebf'
+clientid = os.getenv('SPOTIPY_CLIENT_ID')
+clientsecret = os.getenv('SPOTIPY_CLIENT_SECRET')
 app = Flask(__name__)
 
 

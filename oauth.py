@@ -105,9 +105,9 @@ def getTrack():
 
     #necessary_data = []
 
-    """for i in range(5): 
+    """for i in range(5):
         user_music_data = sp.current_user_saved_tracks(limit=1, offset=i)['items']  #Here we're using current user saved tracks, can be later replaced with top tracks
-        
+
         '''
         #Here, because we were getting a list in form of string, that's why we didn't preferred to use it!!!
 
@@ -115,14 +115,14 @@ def getTrack():
         user_music_data = str(user_music_data)
         return user_music_data
         '''
-        
+
         #here, item is containing the Python-format Dictionary but in String format
-        item = str(user_music_data)        
+        item = str(user_music_data)
 
         #Converting String to Dictionary
         import ast
         movie = ast.literal_eval(item[1:-1:])   #'movie' contains the dictionary which can be used to extract the data
-        
+
         track = movie["track"]
         Name = str(track["name"])
         MainGenreList.append(gw.genreFinder(Name, sp))
@@ -131,10 +131,10 @@ def getTrack():
         Name = "SpotMovies - Filter.csv"
         MainOutputList = gw.OutputListFinder(MajorGenreList, Name, 45, pd)
         MainOutputList_Final = []
-        
+
         for i in MainOutputList:
             MainOutputList_Final.append(str(i))
-        
+
         Movies = db.getMovies(MainOutputList_Final)
         '''
         temp_list = [str(track["href"]), str(track["id"]), str(track["name"])] #Taking 'href', 'Id' & 'name'

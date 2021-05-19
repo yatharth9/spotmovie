@@ -105,9 +105,9 @@ def getTrack():
 
     #necessary_data = []
 
-    """for i in range(5):
+    for i in range(5): 
         user_music_data = sp.current_user_saved_tracks(limit=1, offset=i)['items']  #Here we're using current user saved tracks, can be later replaced with top tracks
-
+        #user_music_data will contain the data in JSON format returned from Spotify (refer user_music_data.txt in ANUJ's Localhost)
         '''
         #Here, because we were getting a list in form of string, that's why we didn't preferred to use it!!!
 
@@ -115,35 +115,43 @@ def getTrack():
         user_music_data = str(user_music_data)
         return user_music_data
         '''
-
+        
         #here, item is containing the Python-format Dictionary but in String format
-        item = str(user_music_data)
+        item = str(user_music_data)        
 
         #Converting String to Dictionary
         import ast
         movie = ast.literal_eval(item[1:-1:])   #'movie' contains the dictionary which can be used to extract the data
-
+        
         track = movie["track"]
         Name = str(track["name"])
-        MainGenreList.append(gw.genreFinder(Name, sp))
+        MainGenreList.append(gw.genreFinder(Name, sp))  #This list will give us 2D matrix with rows as number of iterations with values of numerous genres.
+        #Till here 3 sec
 
-        MajorGenreList = gw.GenreListFinder(MainGenreList)
-        Name = "SpotMovies - Filter.csv"
-        MainOutputList = gw.OutputListFinder(MajorGenreList, Name, 45, pd)
-        MainOutputList_Final = []
-
-        for i in MainOutputList:
-            MainOutputList_Final.append(str(i))
-
-        Movies = db.getMovies(MainOutputList_Final)
-        '''
-        temp_list = [str(track["href"]), str(track["id"]), str(track["name"])] #Taking 'href', 'Id' & 'name'
-        necessary_data.append(temp_list)
-        '''
+    #Cleaning/Finding unique Genre     
+    MajorGenreList = gw.GenreListFinder(MainGenreList)
+    
+    #From here, we'll get the movie genre(s) from a particular threshold(or Boundary) value
+    Name = "SpotMovies - Filter.csv"
+    Boundary = 45
+    MainOutputList = gw.OutputListFinder(MajorGenreList, Name, Boundary, pd)
+    #Till here 4 sec
+    
     """
+    MainOutputList_Final = []
+    
+    for i in MainOutputList:
+        MainOutputList_Final.append(str(i))
+    
+    Movies = db.getMovies(MainOutputList_Final)
+    '''
+    temp_list = [str(track["href"]), str(track["id"]), str(track["name"])] #Taking 'href', 'Id' & 'name'
+    necessary_data.append(temp_list)
+    '''"""
+
     #return str(Movies)      #Returning JSON type data
     return redirect(url_for("results", _external=False))
-
+    
 
 @app.route('/results')
 def results():

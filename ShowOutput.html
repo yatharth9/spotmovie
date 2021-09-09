@@ -1,0 +1,8 @@
+{% {% extends "layout.html" %}%}
+    {% block body %}
+        <ul>
+            {%for output in MainOutputList%}
+            <li>{{output}}</li>
+            {% endfor %}
+        </ul>
+    {% endblock %}

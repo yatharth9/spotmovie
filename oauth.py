@@ -155,7 +155,7 @@ def getTrack():
 
 @app.route('/results')
 def results():
-    return render_template("RedirectingHomepage.html")
+    return render_template("ShowOutput.html", MainOutputList)
 
 if __name__ == "__main__":
     app.run()

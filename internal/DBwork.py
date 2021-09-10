@@ -27,45 +27,8 @@ def GetFromOneGenre(MainOutputList, Movies, Cursor, year, Range):
         Cursor.execute(command)
         Result = Cursor.fetchall()
         
-        """
-        max = 0
-        for j in Result:
-            if j[6]>max:
-                max = j[6]
-                value = j
-        """
-        """
-        max1 = 0
-        max2 = 9999999
-        value = []
-        for j in range(len(Result)):
-            if Result[j][6]>max1 and Result[j][7]<max2:
-                max1 = Result[j][6]
-                max2 = Result[j][7]
-                value.append(j)
-        """        
-        """
-        print("length - %d" %len(Result))
-        print("value - ")
-        print(value, end="\n\n")
-        """
-
         for index in range(Range):
             Movies.append(Result[index])
-        """
-        for j in range(len(Result)):
-            if int(Result[j][3])>year and Result[j][3] != '\\N':
-                TempMovies.append(Result[j])        
-        
-        j = random.randint(0, len(TempMovies)-1)
-        MovieIndex = len(Movies)
-        print(MovieIndex)
-        href_movie = f"https://www.imdb.com/title/{TempMovies[j][0]}/"
-        #Poster = gp.getposter(tconst=str(TempMovies[j][0]), Name=str(TempMovies[j][1]))
-        #Movies.append({"tconst": TempMovies[j][0],"href_movie": href_movie, "Name": TempMovies[j][1], "Genres": TempMovies[j][2], "Year": TempMovies[j][3], "Poster": Poster})
-        
-        Movies.append({"tconst": TempMovies[j][0],"href_movie": href_movie, "Name": TempMovies[j][1], "Genres": TempMovies[j][2], "Year": TempMovies[j][3]})
-        """
 
     return Movies
 
@@ -89,47 +52,9 @@ def GetFromTwoGenre(MainOutputList, Movies, Cursor, year, Range):
             Cursor.execute(command)
             Result = Cursor.fetchall()
 
-            """
-            max = 0
-            for j in Result:
-                if j[6]>max:
-                    max = j[6]
-                    value = j
-            """
-            """
-            max1 = 0
-            max2 = 9999999
-            value = []
-            for j in range(len(Result)):
-                if Result[j][6]>max1 and Result[j][7]<max2:
-                    max1 = Result[j][6]
-                    max2 = Result[j][7]
-                    value.append(j)
-            """
-            """
-            print("length - %d" %len(Result))
-            print("value - ")
-            print(value, end="\n\n")
-            """
-
             for index in range(Range):
                 Movies.append(Result[index])
-            """
-            TempMovies = []
-    
-            for j in range(len(Result)):
-                if int(Result[j][3])>year and Result[j][3] != '\\N':
-                    TempMovies.append(Result[j])
-
-            j = random.randint(0, len(TempMovies)-1)
-            MovieIndex = len(Movies)
-            href_movie = f"https://www.imdb.com/title/{TempMovies[j][0]}/"
-            #Poster = gp.getposter(tconst=str(TempMovies[j][0]), Name=str(TempMovies[j][1]))
-            #Movies.append({"tconst": TempMovies[j][0],"href_movie": href_movie, "Name": TempMovies[j][1], "Genres": TempMovies[j][2], "Year": TempMovies[j][3], "Poster": Poster})
-            
-            Movies.append({"tconst": TempMovies[j][0],"href_movie": href_movie, "Name": TempMovies[j][1], "Genres": TempMovies[j][2], "Year": TempMovies[j][3]})
-            """
-    
+                
     return Movies
 
 #____________________________________________________________________________________________________________________
@@ -148,12 +73,7 @@ def getMovies(MainOutputList):
         m = pd.DataFrame(Movies, columns=["tconst", "primaryTitle", "startYear", "runtimeMinutes", "genres", "directors", "averageRating", "changeFactor", "poster"])
         m.drop_duplicates(subset ="tconst", keep = 'first', inplace = True)
         m.sort_values("averageRating", ascending = False, inplace = True)
-        #file = open("RedirectedOutput.json", "w")
-        #JSONdata = json.dumps(Movies, ensure_ascii= False)
-
-        #file.write(JSONdata)
-        #file.close()
-
+        
         return m.iloc[:,:].values
     
     except mysql.connector.Error as error:
@@ -166,38 +86,3 @@ def getMovies(MainOutputList):
             print("MySQL connection is closed")
 
 #____________________________________________________________________________________________________________________
-"""
-MainOutputList = ['ACTION', 'SPORT', 'CRIME', 'ADVENTURE']
-#MainOutputList = ['ROMANCE', 'CRIME', 'HORROR']
-
-St = time.time()
-Movies = getMovies(MainOutputList)
-Et = time.time()
-print("Time elapsed - {0}".format(Et-St))
-
-userRequest = True      #Assuming the user had Logged in
-try:  
-    start = 0
-    end = 10 
-    while(userRequest):
-        print(tabulate(Movies[start:end], tablefmt="pipe"))
-        print(len(Movies))
-
-        if end == len(Movies):
-            print("----------------------------------------THANKS FOR CHOOSING OUR RECOMMENDATIONS----------------------------------------")
-            break
-
-        i = int(input("LOAD MORE: (1 for yes/ 0 for exit) : "))
-        if i == 0:
-            userRequest = False
-            print("----------------------------------------THANKS FOR CHOOSING OUR RECOMMENDATIONS----------------------------------------")
-        else:   
-            start = end
-            end += 10
-            if(end>=len(Movies)):
-                end = len(Movies)
-                print("This is the last possible iteration for NOW. ")         
-     
-except ValueError:
-    print("Wrong Value")    
-"""

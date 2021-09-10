@@ -153,14 +153,12 @@ def getTrack():
     '''"""
 
     #return str(Movies)      #Returning JSON type data
-    return redirect(url_for("results", _external=False))
+    #return redirect(url_for("results", _external=False))
 
-sampleList = ["A", "B", "C", "D", "E"]
-print(f"Userlist : {Userlist}")
-
-@app.route('/results')
-def results():
-    return render_template("ShowOutput.html", items=Userlist)
+    sampleList = ["A", "B", "C", "D", "E"]
+    print(f"Userlist : {Userlist}")
+    r = random.choice(sampleList)
+    return render_template("ShowOutput.html", items=[r])
 
 if __name__ == "__main__":
     app.run(debug=True)

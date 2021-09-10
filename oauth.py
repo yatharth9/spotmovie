@@ -90,6 +90,7 @@ def create_spotify_oauth():
 def not_found_error(error):
     return render_template('404.html'),404
 
+Userlist = []
 
 @app.route('/getTracks')
 def getTrack():
@@ -135,6 +136,8 @@ def getTrack():
     Name = "SpotMovies - Filter.csv"
     Boundary = 45
     MainOutputList = gw.OutputListFinder(MajorGenreList, Name, Boundary, pd)
+    print(f"MainOutputList: {MainOutputList}")
+    Userlist = MainOutputList
     #Till here 4 sec
 
     """
@@ -152,10 +155,12 @@ def getTrack():
     #return str(Movies)      #Returning JSON type data
     return redirect(url_for("results", _external=False))
 
+sampleList = ["A", "B", "C", "D", "E"]
+print(f"Userlist : {Userlist}")
 
 @app.route('/results')
 def results():
-    return render_template("ShowOutput.html", MainOutputList)
+    return render_template("ShowOutput.html", items=Userlist)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

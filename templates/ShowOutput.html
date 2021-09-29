@@ -1,10 +1,7 @@
-<html>
-    <head>
-        <title>Spotmovie Flask Test</title>
-    </head>
-    <body>
+{% extends "layout.html" %}
+
+{% block body %}
         {% for item in items%}
             <p>{{item}}</p>
         {% endfor %}
-    </body>
-</html>
+{% endblock %}
